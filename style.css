@@ -48,13 +48,26 @@ main {
     display: table;
 }
 
-.quadrato { 
+.quadrato-facile { 
     border: 1px solid black;
-    height: calc(100% / 8);
-    width: calc(100% / 8); 
+    height: calc(100% / 10);
+    width: calc(100% / 10); 
     float: left;  
 }
 
+.quadrato-medio {
+    border: 1px solid black;
+    height: calc(100% / 9);
+    width: calc(100% / 9); 
+    float: left;  
+}
+
+.quadrato-difficile {
+    border: 1px solid black;
+    height: calc(100% / 7);
+    width: calc(100% / 7); 
+    float: left;  
+}
 /*FOOTER*/
 
 footer {

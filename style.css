@@ -63,3 +63,9 @@ footer {
     align-items: center;
     padding: 5px;
 }
+
+/*UTILITIES*/
+
+.blue {
+    background-color: darkblue;
+}

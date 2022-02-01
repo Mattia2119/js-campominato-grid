@@ -6,5 +6,7 @@ for (let i = 1; i<=64; i++) {
     
     node.classList.add("quadrato");
 
+    node.addEventListener("click").classList.add("blue");
+
     grid.append(node);
 }

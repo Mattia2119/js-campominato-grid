@@ -7,6 +7,7 @@ function play () {
 
     let numeroCelle;
     let quadratiPerRiga;
+    const tentativi = [];
         
        if (difficoltà == "easy") {
         numeroCelle = 100;
@@ -22,10 +23,24 @@ function play () {
         const numeroBombe = 16;
 
         const bombe = generaBombe(numeroBombe,numeroCelle);
+        console.log(bombe)
 
-        console.log (bombe)
+        /*Funzione per gestire il click sulle celle 
+che mi aggiunga la classe blue e rimuova l'evento di click dopo il click */
 
-
+        function cellClick () {
+            this.classList.add("blue");
+            this.removeEventListener("click", cellClick);
+        
+            const cell = parseInt(this.innerText);
+        
+            if (bombe.includes(cell)) {
+                alert("Boom, hai perso...");
+            } else { 
+                tentativi.push(cell);
+            }
+            console.log("Al momento hai cliccato su una bomba")
+        }
 
 
     //Effettuo il reset della griglia al click
@@ -56,42 +71,28 @@ function play () {
 
     return true;
 }
-
-
-
-
-
-
-
-
-
-
-
-//FUNZIONI//
-    
-//Funzione per gestire il click sulle celle
- function cellClick () {
-    this.classList.add("blue");
-    this.removeEventListener("click", cellClick);
-}
-
-//Funzione per generare le bombe
+ 
+//Funzione per generare le bombe ed evitare che l'array si componga di doppioni
 function generaBombe (numeroBombe, numeroCelle) {
     
     const bombeGenerate = [];
 
-    while (bombeGenerate.lenght < numeroBombe) {
-        bombeGenerate.push(randomIntFromInterval(1 , numeroCelle));
+    while (bombeGenerate.length < numeroBombe) {
+
+        const bomba = randomIntFromInterval(1 , numeroCelle);
+
+        if (!bombeGenerate.includes(bomba)) {
+            bombeGenerate.push(bomba);
+        }
+       
     }
     return bombeGenerate;
 }
+
+//UTILITIES
 
 //Funzione per generare un numero casuale compreso tra due valori
 function randomIntFromInterval(min, max) { 
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
 
-//Funzione per calcolare il numero delle celle
-function CalcoloCelle () {
-
-}

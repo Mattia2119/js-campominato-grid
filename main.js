@@ -1,10 +1,4 @@
-
-
-
 document.getElementById("play").addEventListener("click", play);
-
-
-
 
 //Funzione per gestire il click sul button//
 function play () {
@@ -46,17 +40,14 @@ function play () {
 
         nodo.innerText = i;
 
-    
         nodo.addEventListener("click", cellClick);
         
-        grid.appendChild(nodo);
-   
+        grid.appendChild(nodo); 
     }
-
 }
+
 const numeroBombe = 16;
 
- 
 generaBombe (numeroBombe, quadrati)
 
 
@@ -81,11 +72,11 @@ function generaBombe (numeroBombe,quadrati) {
     const bombeGenerate = [];
 
     while (bombeGenerate.lenght < numeroBombe) {
-        bombeGenerate.push(randomIntFromInterval(1,quadrati));
+        bombeGenerate.push(randomIntFromInterval(1 , quadrati));
     }
     return bombeGenerate;
 }
 
-function randomIntFromInterval(min, max) { // min and max included 
+function randomIntFromInterval(min, max) { 
     return Math.floor(Math.random() * (max - min + 1) + min);
   }
